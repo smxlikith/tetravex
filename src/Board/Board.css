@@ -1,0 +1,21 @@
+.col-container{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+
+#seperator{
+   display: flex;
+   flex-direction: column;
+   align-items: center; 
+   justify-content: center;
+   align-content: center;
+   font-size: 3rem;
+   margin: 1rem, auto;
+   color: hsla(0, 0, 0, 0);
+}
+
+.main-container, .row-container{
+    display: flex;
+}
