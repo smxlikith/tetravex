@@ -1,13 +1,10 @@
-.grid-container {
+.block-container {
   position: relative;
-  width: 10rem;
-  max-width: 300px;
   aspect-ratio: 1 / 1;
-  border-radius: 12px;
+  border-radius: 1rem;
   overflow: hidden;
   background-color: hsla(0, 0, 0, 0);
-   box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.3); 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .triangle {

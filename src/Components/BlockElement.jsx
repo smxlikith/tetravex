@@ -17,7 +17,7 @@ const color = {
 };
 
 function BlockElement(props) {
-	const { top = 6, right = 6, bottom = 4, left = 9, bid = null, pos = {row: -1, col: -1}, board = "shuffled"} = props;
+	const { disabled = false, top = 6, right = 6, bottom = 4, left = 9, bid = null, pos = {row: -1, col: -1}, board = "shuffled"} = props;
 	const { attributes, listeners, setNodeRef, transform } = useDraggable({
 		id: props.id,
 		data: {
@@ -29,14 +29,14 @@ function BlockElement(props) {
 			pos: pos,
 			board: board,
 		},
+		disabled
 	});
 	const style = {
 		transform: CSS.Translate.toString(transform),
 	};
-
 	return (
 		<div
-			className="grid-container"
+			className="block-container w-full h-full"
 			ref={setNodeRef}
 			style={style}
 			{...listeners}

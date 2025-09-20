@@ -1,11 +1,11 @@
-import Board from './Board/Board'
-import IDK from "./Board/temp"
-import './App.css'
+import "./App.css";
+import { useState } from "react";
+import Board from "./Board/Board";
 
 function App() {
-  return <Board size={3} />;
-  // return <BlockElement/>
-  // return <IDK></IDK>
+	return (
+		<Board/> 
+	);
 }
 
-export default App
+export default App;

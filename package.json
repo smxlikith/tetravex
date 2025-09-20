@@ -14,8 +14,12 @@
     "@dnd-kit/modifiers": "^9.0.0",
     "@dnd-kit/sortable": "^10.0.0",
     "@dnd-kit/utilities": "^3.2.2",
+    "@tailwindcss/vite": "^4.1.13",
+    "lucide-react": "^0.544.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-confetti": "^6.4.0",
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",

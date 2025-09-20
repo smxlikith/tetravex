@@ -1,0 +1,111 @@
+/* Background overlay */
+.win-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Center box */
+.win-box {
+  background: #1c1c1c;
+  padding: 2rem 3rem;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+  animation: popIn 0.5s ease-out;
+}
+
+/* Glowing heading */
+.glow-text {
+  font-size: 2.5rem;
+  color: gold;
+  text-shadow: 0 0 10px gold, 0 0 20px orange, 0 0 30px red;
+}
+
+/* Glow around time */
+.time-glow span {
+  font-weight: bold;
+  color: #00ffea;
+  text-shadow: 0 0 8px #00ffea, 0 0 15px #00aaff;
+  font-size: 1.5rem;
+}
+
+/* Top scores */
+.top-scores {
+  margin-top: 1rem;
+}
+.top-scores ol {
+  text-align: left;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+}
+
+/* Button */
+.close-btn {
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background: gold;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.close-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Pop-in animation */
+@keyframes popIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Body glow effect */
+.win-glow {
+  animation: bodyGlow 2s infinite alternate;
+}
+
+@keyframes bodyGlow {
+  from {
+    box-shadow: 0 0 40px 10px rgba(255, 215, 0, 0.4) inset;
+  }
+  to {
+    box-shadow: 0 0 80px 20px rgba(255, 215, 0, 0.8) inset;
+  }
+}
+
+
+/* Glowing text effect */
+.glow-text {
+  text-shadow: 0 0 8px gold, 0 0 16px orange, 0 0 24px red;
+}
+
+/* Timer glow effect */
+.time-glow {
+  font-weight: bold;
+  color: #00ffea;
+  text-shadow: 0 0 6px #00ffea, 0 0 12px #00aaff;
+  animation: pulseGlow 1.5s infinite alternate;
+}
+
+/* Pulsing glow for the timer */
+@keyframes pulseGlow {
+  from {
+    text-shadow: 0 0 6px #00ffea, 0 0 12px #00aaff;
+  }
+  to {
+    text-shadow: 0 0 12px #00ffea, 0 0 20px #0077ff;
+  }
+}

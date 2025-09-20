@@ -1,0 +1,32 @@
+.board-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.col-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+
+#seperator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  font-size: 3rem;
+}
+
+#seperator::before {
+  content: "◀";
+}
+
+@media (max-width: 640px) {
+  #seperator::before {
+    content: "▲";
+  }
+}
