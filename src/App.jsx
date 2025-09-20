@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState } from "react";
-import Board from "./Board/Board";
+import Board from "./Board";
 
 function App() {
 	return (

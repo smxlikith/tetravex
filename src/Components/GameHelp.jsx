@@ -47,7 +47,7 @@ export default function GameHelp({ onClose }) {
 				match:
 			</p>
 			<div className="w-full flex justify-center items-center">
-				<div className="flex w-[30vw] h-[15vw] gap-3">
+				<div className="flex w-[60vw] h-[30vw] sm:w-[30vw] sm:h-[15vw] gap-3">
 					<BlockElement id="ex-1" {...new Block({ right: num })} />
 					<BlockElement id="ex-2" {...new Block({ left: num })} />
 				</div>
