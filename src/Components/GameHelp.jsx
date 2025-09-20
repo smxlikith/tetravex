@@ -5,7 +5,7 @@ import BlockElement from "./BlockElement";
 export default function GameHelp({ onClose }) {
     const num = Math.floor(Math.random()*10);
 	return (
-		<div className=" h-[80%] bg-gray-900 text-white rounded-2xl shadow-xl p-6 max-w-lg w-full mx-4 animate-scale-in overflow-scroll no-scrollbar">
+		<div className=" h-[80%] bg-zinc-800 text-white rounded-2xl shadow-xl p-6 max-w-lg w-full mx-4 animate-scale-in overflow-scroll no-scrollbar">
 			<h1 className="text-3xl font-bold text-yellow-400 mb-4 text-center">
 				❓ How to Play Tetravex
 			</h1>
