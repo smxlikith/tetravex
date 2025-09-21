@@ -247,7 +247,7 @@ function Board() {
 			) : null}
 			{hasWon ? (
 				<Overlay zidx={101} blur={2} delay={500}>
-					<WinScreen onClose={startNewGame} time={seconds} topScores={[]} />
+					<WinScreen time={seconds} size={size} onClose={startNewGame} />
 				</Overlay>
 			) : null}
 			{!running && !showMenu && !hasWon && !showSolution && !showHelp ? (
