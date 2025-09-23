@@ -6,16 +6,21 @@ import {
 	formatRelativeTime,
 	getTopScores,
 	saveScore,
+	getPrevUserName,
+	setPrevUsername,	
 } from "../../lib/utils";
 
 export default function WinScreen({ time, size, onClose }) {
-	const topScores = getTopScores();
-	const [username, setUsername] = useState("");
+	const topScores = getTopScores(size);
+	const previousUsername = getPrevUserName();
+	const [username, setUsername] = useState(previousUsername);
 
 	const handleSave = () => {
-		if (!username.trim()) return;
-		saveScore(username.trim(), time, size);
-		setUsername("");
+		const trimmed = username.trim();
+		if (!trimmed) return;
+		saveScore(trimmed, time, size);
+		setPrevUsername(trimmed);	
+		setUsername(trimmed);
 		onClose();
 	};
 
@@ -52,7 +57,7 @@ export default function WinScreen({ time, size, onClose }) {
 				<h3 className="text-yellow-300 text-lg font-semibold mb-2">
 					🏆 Top Scores
 				</h3>
-				<div className="w-[65%] mt-2 text-left overflow-scroll no-scrollbar">
+				<div className="size-max mt-2 text-left overflow-scroll no-scrollbar">
 					<ol className="list-decimal list-inside space-y-1 text-gray-200">
 						{topScores.map((s, idx) => (
 							<li key={idx} className="flex justify-between gap-5">

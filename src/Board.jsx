@@ -3,6 +3,7 @@ import Grid from "./Components/Grid";
 import Timer from "./Components/Timer";
 import GameMenu from "./Components/Menu";
 import Overlay from "./Components/Overlay";
+import GameHelp from "./Components/GameHelp";
 import { validMove } from "../lib/moveLogic";
 import WinScreen from "./Components/WinScreen";
 import React, { useEffect, useState } from "react";
@@ -19,7 +20,6 @@ import {
 	closestCenter,
 	DragOverlay,
 } from "@dnd-kit/core";
-import GameHelp from "./Components/GameHelp";
 
 function Board() {
 	const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
@@ -125,16 +125,11 @@ function Board() {
 			.split("")
 			.map((el) => parseInt(el));
 
-		console.log(block);
-		console.log(toSlot, block.board);
-
 		if (!over) return;
-		if (block.board == toSlot && slotRow == blockRow && slotCol == blockCol)
-			return;
+		if (block.board == toSlot && slotRow == blockRow && slotCol == blockCol) return;
 
 		if (toSlot == "shuffled") {
 			if (block.board == "shuffled") {
-				console.log("shuffle->shuffle");
 				setShuffled((prev) => {
 					const updated = deepCopyState(prev);
 
@@ -154,10 +149,7 @@ function Board() {
 				// from game to shuffled
 				const shuffleBlock = shuffled[slotRow][slotCol];
 				const gameBlock = gameState[blockRow][blockCol];
-				console.log("game->shuffled");
-				if (
-					validMove(gameState, { row: blockRow, col: blockCol }, shuffleBlock)
-				) {
+				if ( shuffleBlock == null || validMove(gameState, { row: slotRow, col: slotCol }, shuffleBlock)) {
 					if (shuffleBlock) {
 						shuffleBlock.board = "game";
 						shuffleBlock.pos = { row: blockRow, col: blockCol };
@@ -170,24 +162,20 @@ function Board() {
 					setGameState((prev) => {
 						const updated = deepCopyState(prev);
 						updated[blockRow][blockCol] = shuffleBlock;
-						console.log("after update, game: ", updated);
 						return updated;
 					});
 
 					setShuffled((prev) => {
 						const updated = deepCopyState(prev);
 						updated[slotRow][slotCol] = gameBlock;
-						console.log("shuffled: ", updated);
 						return updated;
 					});
 				}
 			}
 		} else if (toSlot == "game") {
 			if (block.board == "game") {
-				console.log("game->game");
 				// from game to game
 				if (validMove(gameState, { row: slotRow, col: slotCol }, block)) {
-					console.log("yup it returned true");
 					setGameState((prev) => {
 						const updated = deepCopyState(prev);
 						if (updated[slotRow][slotCol])
@@ -199,13 +187,11 @@ function Board() {
 							updated[blockRow][blockCol],
 							updated[slotRow][slotCol],
 						];
-						console.log(updated);
 						return updated;
 					});
 				}
 			} else {
 				// from shuffled to game
-				console.log("shuffle->game");
 				if (validMove(gameState, { row: slotRow, col: slotCol }, block)) {
 					const shuffleBlock = shuffled[blockRow][blockCol];
 					const gameBlock = gameState[slotRow][slotCol];
@@ -220,14 +206,12 @@ function Board() {
 					setGameState((prev) => {
 						const updated = deepCopyState(prev);
 						updated[slotRow][slotCol] = shuffleBlock;
-						console.log("game: ", updated);
 						return updated;
 					});
 
 					setShuffled((prev) => {
 						const updated = deepCopyState(prev);
 						updated[blockRow][blockCol] = gameBlock;
-						console.log("shuffled: ", updated);
 						return updated;
 					});
 				}
