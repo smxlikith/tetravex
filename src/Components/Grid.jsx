@@ -2,7 +2,7 @@ import React from 'react';
 import EmptySlot from './EmptySlot';
 import BlockElement from './BlockElement';
 
-const Grid = ({state, grid_name, disabled}) => {
+const Grid = ({state, grid_name, disabled=false}) => {
     const cols = state[0]?.length || 0;
     const style = {
         gridTemplateColumns: `repeat(${cols}, 1fr)`, 

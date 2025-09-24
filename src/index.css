@@ -1,4 +1,21 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Jersey 20 Charted";
+  src: local("Jersey 20 Charted Regular"),
+       url("./assets/fonts/Jersey20Charted-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Jersey 10";
+  src: local("Jersey 10 Regular"),
+       url("./assets/fonts/Jersey10-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

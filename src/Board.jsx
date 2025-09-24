@@ -1,4 +1,5 @@
 import "./Board.css";
+import Art from "./Art/Art"
 import Grid from "./Components/Grid";
 import Timer from "./Components/Timer";
 import GameMenu from "./Components/Menu";
@@ -236,18 +237,21 @@ function Board() {
 			) : null}
 			{!running && !showMenu && !hasWon && !showSolution && !showHelp ? (
 				<Overlay>
-					<div className="flex items-center justify-center">
-						<button className="mx-2" onClick={toggleTimer}>
-							<Play size={26} />
-						</button>
-						<button
-							className="mx-2"
-							onClick={() => {
-								setShowMenu((prev) => !prev);
-							}}
-						>
-							<Menu size={26} />
-						</button>
+					<div className="flex flex-col items-center justify-center">
+						<Art/>
+						<div className="flex items-center justify-center">
+							<button className="mx-2" onClick={toggleTimer}>
+								<Play size={26} />
+							</button>
+							<button
+								className="mx-2"
+								onClick={() => {
+									setShowMenu((prev) => !prev);
+								}}
+							>
+								<Menu size={26} />
+							</button>
+						</div>
 					</div>
 				</Overlay>
 			) : null}

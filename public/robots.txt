@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tetravex.smxlikith.xyz/sitemap.xml
