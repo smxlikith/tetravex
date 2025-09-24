@@ -51,7 +51,7 @@ npm run dev
 ![screenshot of a game](./Screenshots/screeshot_3.png)
 
 ## 📄 License
-This project is open source under the MIT License
+This project is open source under the GPL-3.0 License
 
 ## 🙌 Acknowledgements
 Inspired by the classic Tetravex puzzle game.
